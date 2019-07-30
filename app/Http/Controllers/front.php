@@ -2,12 +2,13 @@
 
 namespace App\Http\Controllers;
 
+
 use Illuminate\Http\Request;
 use App\bookinginfo;
 use App\user;
 use App\aaa;
 use Auth;
-
+use Image;
 use DB;
 
 
@@ -190,10 +191,7 @@ public function bookThis(Request $request){
 
     $amt = DB::table('rooms')->select('rooms.price')->where('Roomid',$roomid)->get();
     
-    $am = ($amt[0]->price);
-
-
-    
+    $amt = ($amt[0]->price);
 
     $bookingdata = array($Empno,$reason,$roomid,$strd,$endd);
 
@@ -221,8 +219,10 @@ public function addRoom(Request $request)
 
 
 {
+  
+  
         $roomid = $request->input('id');
-
+        
         $desc = $request->input('desc');
 
         $price = $request->input('price');
@@ -232,19 +232,20 @@ public function addRoom(Request $request)
         $bedtype = $request->input('bedtype');
 
         $fac = $request->input('fac');
-
-        $file = $request->file('filename[]');
-
+       
+        $image = $request->file('select_file');
+       
+        $new_name = rand() . '.' . $image->getClientOriginalExtension();
+         
         
+        Image::make($image)->resize(300,300)->save(public_path('/uploads/room/'.  $new_name))->save();
+         
         
-
-        
-        DB::insert('insert into rooms (Roomid,description,price,size,Bed_Type,Facilities) values(?,?,?,?,?,?)',[$roomid,$desc,$price,$size,$bedtype,$fac]);
+        DB::insert('insert into rooms (Roomid,description,price,size,Bed_Type,Facilities,room_image) values(?,?,?,?,?,?,?)',[$roomid,$desc,$price,$size,$bedtype,$fac,$new_name]);
             
         return redirect()->back()
         ->with('success','Room Added successfully');
-
-
+    
        
         
 

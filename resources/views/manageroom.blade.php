@@ -113,7 +113,7 @@
             <div class="tab-pane active" id="info">
 
             <div class="row">
-            <form action="/addRoom" id="addRoomForm" onsubmit="return(validate());"> 
+            <form action="{{url('/addRoom')}}" id="addRoomForm" onsubmit="return(validate());" method="POST" enctype="multipart/form-data"> 
                 {{csrf_field()}}
 
                 <div class="col-md-6">
@@ -160,7 +160,8 @@
                 <div class="col-md-6">
                 Image:
                     <div class="form-group">
-                        <input type="file" name="filename[]" placeholder="Image" required="required" Facilitiesvalue="Select Image" class="form-control">
+                    <input type="file" name="select_file" >
+            
                     </div>
                 </div>
 

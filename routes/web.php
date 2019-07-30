@@ -78,7 +78,7 @@ Route::get('/managerooms', function () {
     return view('manageroom');
 });
 
-Route::get('/addRoom','front@addRoom');
+Route::post('/addRoom','front@addRoom');
 
 Route::get('/confirmuser','front@confirmuser');
 
@@ -102,9 +102,13 @@ Route::get('/bookthis','front@bookThis');
 //mail send to user confirm AR
 //Route::post('/conforimreq','MailController@send');
 Route::get('/send','MailController@send');
-
-
+//change
+Route::post('/ChangePassword/{id}','AccountSetting@ChangePassword');
 Route::get('/pdf','PDFController@pdf');
+
+Route::get('/resetpass', function () {
+    return view('/resetpass');
+});
 
 //Download pdf  user
 //Route::get('/pdf/pdf','PDFController@pdf');// Route::get('/pdf/pdf','PDFController@pdf');
