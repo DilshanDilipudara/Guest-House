@@ -204,7 +204,7 @@
                     
                     <div class="block-34">
                       <div class="image">
-                        <a href="#"><img src="images/5.jpg" alt="Image placeholder"></a>
+                        <a href="#"><img src="/uploads/room/{{$room->room_image}}" alt="Image placeholder"></a>
                       </div>
                       <div class="text">
                         <h2 class="heading"></h2>
@@ -216,7 +216,7 @@
                           <li><strong>Facilities  : {{$room->Facilities}}</strong></li>
                           <li><strong>Size        : {{$room->size}}</strong> m<sup>2</sup></li>
                           <li><strong>Bed Type    : {{$room->Bed_Type}}</strong> </li>
-                          
+                          <li><strong>Total ammount   : Rs. {{$room->pri}}</strong> </li>
                         </ul> 
                         <button class="btn btn-primary" data-toggle="modal" data-target="#modalQuickView" type="button" onclick="getRoom({{$room->Roomid}})">Book Now</button>
                         
