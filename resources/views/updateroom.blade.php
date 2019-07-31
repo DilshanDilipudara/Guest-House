@@ -64,7 +64,7 @@
                         <span class="icon-bar bar2"></span>
                         <span class="icon-bar bar3"></span>
                     </button>
-                    <a class="navbar-brand" href="#">Add, Update, Delete Room info Here.</a>
+                    <a class="navbar-brand" href="/updateroom"> Update</a>
                 </div>
                 
             </div>
@@ -79,9 +79,7 @@
     
         <ul class="nav nav-stacked" role="tablist">
         <li class="active">
-                <a href="#info" role="tab" data-toggle="tab">
-                     Update
-                </a>
+               
             </li>
             
 
@@ -95,14 +93,15 @@
 
             <div class="row">
             @foreach($data as $value)
-            <form action="{{url('/addRoom')}}" id="addRoomForm" onsubmit="return(validate());" method="POST" enctype="multipart/form-data"> 
+            
+            <form action="{{url('/updateroom')}}" id="addRoomForm" onsubmit="return(validate());" method="POST" enctype="multipart/form-data"> 
                 {{csrf_field()}}
-
+                
                 <div class="col-md-6">
                 Room ID:
                     <div class="form-group">
                     
-                        <input type="number" value="{{$value->Roomid}}" name="id" placeholder="Room ID" required="required"  class="form-control">
+                        <input type="number" value="{{$value->Roomid}}" name="id" placeholder="Room ID" required="required"  class="form-control" readonly>
                     </div>
                 </div>
                 
@@ -128,8 +127,8 @@
                 <div class="col-md-6">
                 Bed Type:
                     <div class="form-group">
-                    <input type="radio" name="bedtype" value="Single Bed"> Single Bed<br>
-                    <input type="radio" name="bedtype" value="Double Bed"> Double Bed<br>                  </div>
+                    <input type="radio" name="bedtype"  value="{{$value->Bed_Type}}" @if($value->Bed_Type  == "Single Bed") checked @endif> Single Bed<br>
+                    <input type="radio" name="bedtype" value="{{$value->Bed_Type}}" @if($value->Bed_Type  == "Double Bed") checked @endif> Double Bed<br>                  </div>
                 </div>
 
                 <div class="col-md-6">
@@ -142,7 +141,8 @@
                 <div class="col-md-6">
                 Image:
                     <div class="form-group">
-                    <input type="file" name="select_file" >
+                      <img src="/uploads/room/{{$value->room_image}}"   alt="no available picture"><br><br>
+                    <input type="file" name="select_file" value="/uploads/room/{{$value->room_image}}" required>
             
                     </div>
                 </div>
@@ -154,6 +154,7 @@
 
                     </div>
                 </div>
+             <p>=======================================================================================================</P>
             </form>
             @endforeach
     	</div>

@@ -80,6 +80,7 @@ Route::post('/addRoom','front@addRoom');
 
 //update room
 Route::get('/updateroom','front@updateroom');
+Route::post('/updateroom','front@updateroomvalue');
 
 Route::get('/confirmuser','front@confirmuser');
 

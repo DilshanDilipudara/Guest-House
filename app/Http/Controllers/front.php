@@ -7,8 +7,11 @@ use App\bookinginfo;
 use App\user;
 use App\aaa;
 use Auth;
-
+use Image;
 use DB;
+use Carbon\Carbon;
+
+
 
 
 class front extends Controller
@@ -185,7 +188,7 @@ public function bookThis(Request $request){
     $Empno = Auth::user()->Empno;
 
     $roomid = $request->input('roomNo');
-
+    
     $reason = $request->input('optradio'); 
 
     $amt = DB::table('rooms')->select('rooms.price')->where('Roomid',$roomid)->get();
@@ -221,28 +224,33 @@ public function addRoom(Request $request)
 
 
 {
-        $roomid = $request->input('id');
-
-        $desc = $request->input('desc');
-
-        $price = $request->input('price');
-
-        $size = $request->input('size');
-
-        $bedtype = $request->input('bedtype');
-
-        $fac = $request->input('fac');
-
-        $file = $request->file('filename[]');
-
+    $roomid = $request->input('id');
         
-        
+    $desc = $request->input('desc');
 
+    $price = $request->input('price');
+
+    $size = $request->input('size');
+
+    $bedtype = $request->input('bedtype');
+
+    $fac = $request->input('fac');
+   
+    $image = $request->file('select_file');
+   
+    $new_name = rand() . '.' . $image->getClientOriginalExtension();
+     
+    
+    Image::make($image)->resize(300,300)->save(public_path('/uploads/room/'.  $new_name))->save();
+     
+    
+    DB::insert('insert into rooms (Roomid,description,price,size,Bed_Type,Facilities,room_image) values(?,?,?,?,?,?,?)',[$roomid,$desc,$price,$size,$bedtype,$fac,$new_name]);
         
-        DB::insert('insert into rooms (Roomid,description,price,size,Bed_Type,Facilities) values(?,?,?,?,?,?)',[$roomid,$desc,$price,$size,$bedtype,$fac]);
-            
-        return redirect()->back()
-        ->with('success','Room Added successfully');
+    return redirect()->back()
+    ->with('success','Room Added successfully');
+
+   
+    
 
 
        
@@ -334,6 +342,39 @@ public function updateroom(){
              ->get();
 
        return view('updateroom',compact('data'));      
+}
+
+public function updateroomvalue(Request $request)
+
+
+{
+    $roomid = $request->input('id');
+        
+    $desc = $request->input('desc');
+
+    $price = $request->input('price');
+
+    $size = $request->input('size');
+
+    $bedtype = $request->input('bedtype');
+
+    $fac = $request->input('fac');
+   
+    $image = $request->file('select_file');
+   
+    $new_name = rand() . '.' . $image->getClientOriginalExtension();
+
+    
+    Image::make($image)->resize(300,300)->save(public_path('/uploads/room/'.  $new_name))->save();
+     
+     DB::table('rooms')
+        ->where('Roomid',$roomid)
+        ->update(['description'=>$desc,'price'=>$price,'size'=>$size,'Bed_Type'=>$bedtype,'Facilities'=> $fac,'room_image'=>$new_name]);
+
+    return redirect()->back()
+    ->with('success','Room Added successfully');
+     
+
 }
 
 
