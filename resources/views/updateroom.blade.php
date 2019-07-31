@@ -104,6 +104,8 @@
                         <input type="number" value="{{$value->Roomid}}" name="id" placeholder="Room ID" required="required"  class="form-control" readonly>
                     </div>
                 </div>
+         
+        
                 
                 <div class="col-md-6">
                 Description:

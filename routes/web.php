@@ -82,6 +82,10 @@ Route::post('/addRoom','front@addRoom');
 Route::get('/updateroom','front@updateroom');
 Route::post('/updateroom','front@updateroomvalue');
 
+//delete room
+Route::get('/deleteroom','front@deleteroom');
+Route::post('/deleteroom','front@deleteroomdetails');
+
 Route::get('/confirmuser','front@confirmuser');
 
 Route::get('/confirmlist','front@confirmrequest');

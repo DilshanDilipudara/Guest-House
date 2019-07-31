@@ -224,7 +224,14 @@ public function addRoom(Request $request)
 
 
 {
+
+   $validationdata = $request->validate([
+       'Roomid' => 'unique:rooms|required'
+   ]);
+
     $roomid = $request->input('id');
+
+    
         
     $desc = $request->input('desc');
 
@@ -375,6 +382,26 @@ public function updateroomvalue(Request $request)
     ->with('success','Room Added successfully');
      
 
+}
+
+
+public function deleteroom(){
+
+    $data =  DB::table('rooms')
+             ->get();
+
+       return view('deleteroom',compact('data'));      
+}
+
+public function deleteroomdetails(Request $request){
+
+
+    
+    $id = $request->input('id');
+        
+  
+    DB::table('rooms')->where('Roomid', $id)->delete();
+    return redirect()->back();
 }
 
 

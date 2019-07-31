@@ -31,6 +31,12 @@
         </a>
     </li> 
     <li>
+        <a href="/deleteroom">
+        <i class="fa fa-thumb-tack"></i>
+            <p>delete room</p>
+        </a>
+    </li> 
+    <li>
         <a href="/summary">
         <i class="fa fa-thumb-tack"></i>
             <p>Summary</p>

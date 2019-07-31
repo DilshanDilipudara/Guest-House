@@ -40,7 +40,7 @@
 		Tip 1: you can change the color of the sidebar's background using: data-background-color="white | black"
 		Tip 2: you can change the color of the active button using the data-active-color="primary | info | success | warning | danger"
 	-->
-	<title>add room</title>
+	<title>Delete room</title>
 
     	<div class="sidebar-wrapper">
             <div class="logo">
@@ -64,7 +64,7 @@
                         <span class="icon-bar bar2"></span>
                         <span class="icon-bar bar3"></span>
                     </button>
-                    <a class="navbar-brand" href="#">Add.</a>
+                    <a class="navbar-brand" href="/updateroom"> Update</a>
                 </div>
                 
             </div>
@@ -79,84 +79,86 @@
     
         <ul class="nav nav-stacked" role="tablist">
         <li class="active">
-                <a href="#info" role="tab" data-toggle="tab">
-                 
-                </a>
+               
             </li>
             
 
        
         </ul>
     </div>
-
 	<div class="col-md-8 col-sm-8 col-xs-6">
         <!-- Tab panes -->
         <div class="tab-content">
             <div class="tab-pane active" id="info">
 
             <div class="row">
-            <form action="{{url('/addRoom')}}" id="addRoomForm" onsubmit="return(validate());" method="POST" enctype="multipart/form-data"> 
+            @foreach($data as $value)
+            
+            <form action="{{url('/deleteroom')}}" id="addRoomForm" onsubmit="return(validate());" method="POST" enctype="multipart/form-data"> 
                 {{csrf_field()}}
-
+                
                 <div class="col-md-6">
                 Room ID:
                     <div class="form-group">
                     
-                        <input type="number" value="" name="id" placeholder="Room ID" required="required"  class="form-control">
+                        <input type="number" value="{{$value->Roomid}}" name="id" placeholder="Room ID" required="required"  class="form-control" readonly>
                     </div>
                 </div>
-            
-          
+         
+        
                 
                 <div class="col-md-6">
                 Description:
                     <div class="form-group">
                     
-                        <input type="text" value="" name="desc" placeholder="Description" required="required"  class="form-control" autofocus>
+                        <input type="text" value="{{$value->description}}" name="desc" placeholder="Description" required="required"  class="form-control" readonly>
                     </div>
                 </div>
                 <div class="col-md-6">
                 Price(LKR):
                     <div class="form-group">
-                        <input type="number" value="" name="price"  placeholder="Price" required="required"  pattern="[0-9]" title="Price must be valid number."class="form-control">
+                        <input type="number" value="{{$value->price}}" name="price"  readonly required="required"  pattern="[0-9]" title="Price must be valid number."class="form-control">
                     </div>
                 </div>
                 <div class="col-md-6">
                 Size in Sq.Meters:
                     <div class="form-group">
-                        <input type="number" value="" name="size" placeholder="Size" required="required" pattern="(?=.*\d)" title="Size must be valid number." class="form-control">
+                        <input type="number" value="{{$value->size }}" name="size" readonly required="required" pattern="(?=.*\d)" title="Size must be valid number." class="form-control">
                     </div>
                 </div>
                 <div class="col-md-6">
                 Bed Type:
                     <div class="form-group">
-                    <input type="radio" name="bedtype" value="Single Bed"> Single Bed<br>
-                    <input type="radio" name="bedtype" value="Double Bed"> Double Bed<br>                  </div>
+                    <input type="radio" name="bedtype"  value="{{$value->Bed_Type}}" @if($value->Bed_Type  == "Single Bed") checked @endif> Single Bed<br>
+                    <input type="radio" name="bedtype" value="{{$value->Bed_Type}}" @if($value->Bed_Type  == "Double Bed") checked @endif> Double Bed<br>                  </div>
                 </div>
 
                 <div class="col-md-6">
                 Facilities:
                     <div class="form-group">
-                        <input type="text" value=""  name= "fac" placeholder="Facilities" required="required"  class="form-control">
+                        <input type="text" value="{{$value->Facilities}}" readonly name= "fac" placeholder="Facilities" required="required"  class="form-control">
                     </div>
                 </div>
 
                 <div class="col-md-6">
                 Image:
                     <div class="form-group">
-                    <input type="file" name="select_file" >
+                      <img src="/uploads/room/{{$value->room_image}}"   alt="no available picture"><br><br>
+                
             
                     </div>
                 </div>
 
                 <div class="col-md-6">
                     <div class="form-group">
-                        <button  type="submit" class="btn btn-primary">Save</button>
-                        <button type="button" onclick="clearForm()" class="btn btn-danger">Clear</button>
+                        <button  type="submit" class="btn btn-danger">Delete</button>
+                        
 
                     </div>
                 </div>
+             <p>=======================================================================================================</P>
             </form>
+            @endforeach
     	</div>
                 
             </div>
@@ -172,18 +174,9 @@
 </div> 
 
         </div>
-        @if(count($errors)>0)
-            <ul>
-                @foreach($errors->all() as $error)
-                <div class="container alert alert-danger">{{$error}}</div>
-                @endforeach
-            </ul>
-            @endif
-            
+
     </div>
 </div>
-
-
 
 
 </body>
