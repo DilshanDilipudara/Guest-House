@@ -28,9 +28,7 @@ Route::get('/logout', 'Auth\LoginController@logout');
 
 Route::get('/rooms', function () {
     $data=   DB::table('rooms')
-        ->select('rooms.roomID','rooms.size','rooms.description','rooms.price','rooms.Bed_Type','rooms.Facilities')
-        // ->join('users','users.Empno','=','bookinginfos.Empno')
-        // ->where('Cleval',!3)
+        ->select('rooms.roomID','rooms.size','rooms.description','rooms.price','rooms.Bed_Type','rooms.Facilities','rooms.room_image')
         ->get();
 
        return view('rooms')->with('rooms',$data);
@@ -79,6 +77,9 @@ Route::get('/managerooms', function () {
 });
 
 Route::post('/addRoom','front@addRoom');
+
+//update room
+Route::get('/updateroom','front@updateroom');
 
 Route::get('/confirmuser','front@confirmuser');
 

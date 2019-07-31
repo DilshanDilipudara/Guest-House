@@ -40,7 +40,7 @@
 		Tip 1: you can change the color of the sidebar's background using: data-background-color="white | black"
 		Tip 2: you can change the color of the active button using the data-active-color="primary | info | success | warning | danger"
 	-->
-	<title>add room</title>
+	<title>update room</title>
 
     	<div class="sidebar-wrapper">
             <div class="logo">
@@ -80,7 +80,7 @@
         <ul class="nav nav-stacked" role="tablist">
         <li class="active">
                 <a href="#info" role="tab" data-toggle="tab">
-                     Add
+                     Update
                 </a>
             </li>
             
@@ -94,6 +94,7 @@
             <div class="tab-pane active" id="info">
 
             <div class="row">
+            @foreach($data as $value)
             <form action="{{url('/addRoom')}}" id="addRoomForm" onsubmit="return(validate());" method="POST" enctype="multipart/form-data"> 
                 {{csrf_field()}}
 
@@ -101,7 +102,7 @@
                 Room ID:
                     <div class="form-group">
                     
-                        <input type="number" value="" name="id" placeholder="Room ID" required="required"  class="form-control">
+                        <input type="number" value="{{$value->Roomid}}" name="id" placeholder="Room ID" required="required"  class="form-control">
                     </div>
                 </div>
                 
@@ -109,19 +110,19 @@
                 Description:
                     <div class="form-group">
                     
-                        <input type="text" value="" name="desc" placeholder="Description" required="required"  class="form-control" autofocus>
+                        <input type="text" value="{{$value->description}}" name="desc" placeholder="Description" required="required"  class="form-control" autofocus>
                     </div>
                 </div>
                 <div class="col-md-6">
                 Price(LKR):
                     <div class="form-group">
-                        <input type="number" value="" name="price"  placeholder="Price" required="required"  pattern="[0-9]" title="Price must be valid number."class="form-control">
+                        <input type="number" value="{{$value->price}}" name="price"  placeholder="Price" required="required"  pattern="[0-9]" title="Price must be valid number."class="form-control">
                     </div>
                 </div>
                 <div class="col-md-6">
                 Size in Sq.Meters:
                     <div class="form-group">
-                        <input type="number" value="" name="size" placeholder="Size" required="required" pattern="(?=.*\d)" title="Size must be valid number." class="form-control">
+                        <input type="number" value="{{$value->size }}" name="size" placeholder="Size" required="required" pattern="(?=.*\d)" title="Size must be valid number." class="form-control">
                     </div>
                 </div>
                 <div class="col-md-6">
@@ -134,7 +135,7 @@
                 <div class="col-md-6">
                 Facilities:
                     <div class="form-group">
-                        <input type="text" value=""  name= "fac" placeholder="Facilities" required="required"  class="form-control">
+                        <input type="text" value="{{$value->Facilities}}"  name= "fac" placeholder="Facilities" required="required"  class="form-control">
                     </div>
                 </div>
 
@@ -154,6 +155,7 @@
                     </div>
                 </div>
             </form>
+            @endforeach
     	</div>
                 
             </div>

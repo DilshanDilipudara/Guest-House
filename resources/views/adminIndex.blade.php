@@ -130,7 +130,7 @@
 
 	<div class="container mt-3">
 	<input class="form-control" id="myInput" type="text" placeholder="Search..">
-  <br></br>
+  <br><br>
     </div>
 <table class="table  table-bordered ">
 	<h1><th>Employee name</th>

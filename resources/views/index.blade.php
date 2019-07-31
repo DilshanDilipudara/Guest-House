@@ -192,7 +192,8 @@
           @endif
       
       <br>
-      <div class="inner" id="divToHide"> 
+      
+      <div class=" container inner" id="divToHide"> 
             <h2 class="bookbtn-padding offset-2"><?php echo date("Y/M/d")?></h2>
             
             </div>

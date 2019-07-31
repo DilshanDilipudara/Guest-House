@@ -151,34 +151,6 @@
   </div>
   
   
-    <!-- <div class="container ">
-       <div class="block-32 bg-dark border border-info">
-     
-              <form action="/date2" method="POST" >
-              {{csrf_field()}}
-                <div class="row">
-                
-                  <div class="col-md-6 mb-3 mb-lg-0 col-lg-3">
-                    <label for="checkin" class="text-warning">Check In</label>
-                    <div class="field-icon-wrap"> 
-                      <input type="date" id="checkin_date" name ="startdate" class="form-control" >
-                    </div>
-                  </div>
-              
-                  <div class="col-md-6 mb-3 mb-lg-0 col-lg-3">
-                    <label for="checkin" class="text-warning">Check Out</label>
-                    <div class="field-icon-wrap">
-                      <input type="date" id="checkout_date" name ="enddate" class="form-control">
-                    </div>
-                  </div>  
-                
-                    <div class="col-md-6 col-lg-3 align-self-end">
-                      <button  type ="submit" class="btn btn-primary btn-block">Available Rooms</button>
-                    </div>
-                </div>    
-              </form>
-            </div>
-      </div> -->
          <br><br>
 
        
@@ -204,7 +176,7 @@
                     
                     <div class="block-34">
                       <div class="image">
-                        <img src="/uploads/room/{{$room->room_image}}" alt="Image placeholder">
+                        <img src="/uploads/room/{{$room->room_image}}" alt="Not available room photos">
                       </div>
                       <div class="text">
                         <h2 class="heading"></h2>

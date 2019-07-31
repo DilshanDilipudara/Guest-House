@@ -70,6 +70,7 @@
 <!--===============================================================================================-->
 </head>
 <body>
+<br><br><br><br>
 <div class="navbar-header">
                     <button type="button" class="navbar-toggle">
                         <span class="sr-only">Toggle navigation</span>
@@ -82,10 +83,10 @@
 	<div class="container">
 
 
-	</br>
+
 	<div class="container mt-3">
 	<input class="form-control" id="myInput" type="text" placeholder="Search..">
-  <br></br>
+  <br><br>
     </div>
 <table class="table  table-bordered ">
 	<h1><th>Employee name</th>

@@ -326,6 +326,17 @@ public function summary(){
   
 Return view('summary',['user'=>$data]);
 }
+
+
+public function updateroom(){
+
+    $data =  DB::table('rooms')
+             ->get();
+
+       return view('updateroom',compact('data'));      
+}
+
+
 }
 
 

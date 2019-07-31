@@ -98,7 +98,7 @@
                     
                     <div class="block-34">
                       <div class="image">
-                       <img src="images/5.jpg" alt="Image placeholder">
+                       <img src="/uploads/room/{{$room->room_image}}" alt="Not available room photos">
                       </div>
                       <div class="text">
                         <h2 class="heading"></h2>

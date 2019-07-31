@@ -21,7 +21,13 @@
     <li>
         <a href="/managerooms">
         <i class="fa fa-thumb-tack"></i>
-            <p>Room management</p>
+            <p> Add Room </p>
+        </a>
+    </li> 
+    <li>
+        <a href="/updateroom">
+        <i class="fa fa-thumb-tack"></i>
+            <p>Update  room</p>
         </a>
     </li> 
     <li>
