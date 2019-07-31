@@ -76,62 +76,29 @@
       <div class="col-md-7 section-heading">
             <span class="subheading-sm">Rooms On</span>
             <div class="inner" id="divToHide"> 
-            <h2 class="bookbtn-padding"><?php echo date("Y/M/d")?></h2>
-            
+           
             </div>
           </div>
-          <br><br><br>
-<!-- 
-       <div class="row">
-            <div class="col-md-12">
+         
 
-              <div class="nonloop-block-13 owl-carousel">
-
-                  @foreach($rooms as $room)
-                  <div class="item">
-                    <div class="block-34">
-                      <div class="image">
-                        <a href="#"><img src="images/5.jpg" alt="Image placeholder"></a>
-                      </div>
-                      <div class="text">
-                       
-                        <div class="price"><sup>Rs</sup><span class="number">{{$room->price}}</span><sub>/per night</sub></div>
-                        <ul class="specs">
-                          <li><strong>Categories:</strong> Single</li>
-                          <li><strong>Facilities:</strong> Closet with hangers, HD flat-screen TV, Telephone</li>
-                          <li><strong>Size:</strong> 20m<sup>2</sup></li>
-                          <li><strong>Bed Type:</strong> One bed</li>
-                         
-
-                        </ul>
-                      </div>
-                    </div>
-                  </div>
-                  @endforeach
- 
-              </div>
-    
-            </div> 
-          </div>
-
-    </div>
-    
-</div> -->
+       
+</div> 
 
 
 
 
 <div class="row">
-            <div class="col-md-12">
-              <div class="nonloop-block-13 owl-carousel">
 
-             
+            <div class="col-md-12">
+           
+              <div class="nonloop-block-13 owl-carousel">
               @foreach($rooms as $room)
+             
                  <div class="item">
                     
                     <div class="block-34">
                       <div class="image">
-                        <a href="#"><img src="images/5.jpg" alt="Image placeholder"></a>
+                       <img src="images/5.jpg" alt="Image placeholder">
                       </div>
                       <div class="text">
                         <h2 class="heading"></h2>
@@ -145,36 +112,24 @@
                           <li><strong>Bed Type    : {{$room->Bed_Type}}</strong> </li>
                           
                         </ul> 
-                       
+                     
                       </div>
                     </div>
                     
                   </div>               
-            @endforeach 
+            
 
-
+                  @endforeach 
               </div>
+             
             </div> 
+           
           </div>
       </div>
-    </div>
+   </div>
+   
 
-
-
-  
-    <div class="site-section bg-light">
-      <div class="container">
-        <div class="row mb-5">
-          <div class="col-md-7 section-heading">
-            <span class="subheading-sm"></span>
-            <h2 class="heading"></h2>
-          </div>
-        </div>
-
-
-
-      </div>
-    </div>
+<br><br>
 
   
     <footer class="footer">

@@ -204,7 +204,7 @@
                     
                     <div class="block-34">
                       <div class="image">
-                        <a href="#"><img src="/uploads/room/{{$room->room_image}}" alt="Image placeholder"></a>
+                        <img src="/uploads/room/{{$room->room_image}}" alt="Image placeholder">
                       </div>
                       <div class="text">
                         <h2 class="heading"></h2>
