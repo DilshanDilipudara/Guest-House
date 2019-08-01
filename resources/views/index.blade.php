@@ -162,14 +162,14 @@
                   <div class="col-md-6 mb-3 mb-lg-0 col-lg-3">
                     <label for="checkin" class="text-warning">Check In</label>
                     <div class="field-icon-wrap"> 
-                      <input type="date" id="checkin_date" name ="startdate" class="form-control" >
+                      <input type="date" id="checkin_date" name ="startdate" class="form-control" required>
                     </div>
                   </div>
                 <!------ cheeck out date--------->
                   <div class="col-md-6 mb-3 mb-lg-0 col-lg-3">
                     <label for="checkin" class="text-warning">Check Out</label>
                     <div class="field-icon-wrap">
-                      <input type="date" id="checkout_date" name ="enddate" class="form-control">
+                      <input type="date" id="checkout_date" name ="enddate" class="form-control" required>
                     </div>
                   </div>  
                   <!------ submit--------->

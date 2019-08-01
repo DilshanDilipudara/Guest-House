@@ -118,13 +118,13 @@
                 <div class="col-md-6">
                 Price(LKR):
                     <div class="form-group">
-                        <input type="number" value="" name="price"  placeholder="Price" required="required"  pattern="[0-9]" title="Price must be valid number."class="form-control">
+                        <input type="number" value="" name="price" min=0  placeholder="Price" required="required"  pattern="[0-9]" title="Price must be valid number."class="form-control">
                     </div>
                 </div>
                 <div class="col-md-6">
                 Size in Sq.Meters:
                     <div class="form-group">
-                        <input type="number" value="" name="size" placeholder="Size" required="required" pattern="(?=.*\d)" title="Size must be valid number." class="form-control">
+                        <input type="number" value="" name="size" min=0 placeholder="Size" required="required" pattern="(?=.*\d)" title="Size must be valid number." class="form-control">
                     </div>
                 </div>
                 <div class="col-md-6">

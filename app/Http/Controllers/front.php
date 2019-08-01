@@ -232,9 +232,7 @@ public function addRoom(Request $request)
    ]);
 
     $roomid = $request->input('id');
-
-    
-        
+      
     $desc = $request->input('desc');
 
     $price = $request->input('price');
@@ -258,15 +256,9 @@ public function addRoom(Request $request)
     return redirect()->back()
     ->with('success','Room Added successfully');
 
-   
-    
-
-
-       
         
 
 }
-
 
 
 
