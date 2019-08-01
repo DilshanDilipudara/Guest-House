@@ -34,8 +34,8 @@
                                     </span>
                                 @endif
                         </div>
-                        <div class="form-group form-input" class="form-group{{ $errors->has('email') ? ' has-error' : '' }}" >
-                            <input id="Email" type="text" name="Email"   value="{{ old('email') }}" required >
+                        <div class="form-group form-input" class="form-group{{ $errors->has('Email') ? ' has-error' : '' }}" >
+                            <input id="Email" type="text" name="Email"   value="{{ old('Email') }}" required >
                             <label for="Email" class="form-label">E-Mail Address</label>
                             @if ($errors->has('Email'))
                                     <span class="help-block">

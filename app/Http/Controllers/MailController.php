@@ -24,7 +24,7 @@ class MailController extends Controller
      
         Mail::send ('send',['user'=>$user],function($message)use ($user){
            
-            $message ->to($user[0]->Email)
+            $message ->to($user[0]->email)
                       ->subject('UOJ_Guest_House_Booked');
             
             $message ->from('gunawardhanaudara@gmail.com','UoJ_Mail');
@@ -46,7 +46,7 @@ class MailController extends Controller
      
         Mail::send ('useraccess',['user'=>$user],function($message)use ($user){
            
-            $message ->to($user[0]->Email)
+            $message ->to($user[0]->email)
                       ->subject('UOJ_Guest_House_Access_permission');
             
             $message ->from('gunawardhanaudara@gmail.com','UoJ_Mail');
@@ -68,7 +68,7 @@ class MailController extends Controller
      
         Mail::send ('rejectmail',['user'=>$user],function($message)use ($user){
            
-            $message ->to($user[0]->Email)
+            $message ->to($user[0]->email)
                       ->subject('Reject_Permission');
             
             $message ->from('gunawardhanaudara@gmail.com','UoJ_Mail');
@@ -90,7 +90,7 @@ class MailController extends Controller
      
         Mail::send ('rejectroommail',['user'=>$user],function($message)use ($user){
            
-            $message ->to($user[0]->Email)
+            $message ->to($user[0]->email)
                       ->subject('Reject_Permission');
             
             $message ->from('gunawardhanaudara@gmail.com','UoJ_Mail');

@@ -187,10 +187,18 @@ public function bookThis(Request $request){
 
     $amt = DB::table('rooms')->select('rooms.price')->where('Roomid',$roomid)->get();
     
-    $am = ($amt[0]->price);
+
+       $formatted_dt1=Carbon::parse($request->start);
+
+        $formatted_dt2=Carbon::parse($request->end);
+
+        $date_diff=$formatted_dt1->diffInDays($formatted_dt2);
+      
+
+    $am = ($amt[0]->price)*$date_diff;
 
 
-    
+   
 
     $bookingdata = array($Empno,$reason,$roomid,$strd,$endd);
 
@@ -220,7 +228,7 @@ public function addRoom(Request $request)
 {
 
    $validationdata = $request->validate([
-       'Roomid' => 'unique:rooms|required'
+       'Roomid' => 'unique:rooms'
    ]);
 
     $roomid = $request->input('id');

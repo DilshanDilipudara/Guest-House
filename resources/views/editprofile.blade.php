@@ -126,7 +126,7 @@
                               <div class="form-group">
                                   <div class="input-group" class="form-group{{ $errors->has('Pno') ? ' has-error' : '' }}">
                                   <label for="Pno" class="form-control"  class="col-md-4 control-label">Contact Number</label>
-                                      <input id="Pno" type="number" min="10" max="10" class="form-control" name="Pno" value="{{$user->Pno}}" required autofocus  >
+                                      <input id="Pno" type="number"  class="form-control" name="Pno" value="{{$user->Pno}}" required autofocus  >
                                       <span class="input-group-addon">
                                           <i class="glyphicon glyphicon-user"></i>
                                       </span>

@@ -41,16 +41,16 @@
 					</span>
 					
 					<div class="wrap-input100 rs1-wrap-input100 validate-input m-b-20" data-validate="Type user name">
-						<input id="Empno" class="input100" type="text" class="form-control{{ $errors->has('Empno') || $errors->has('email') ? ' is-invalid' : '' }}" name="Empno" value="{{ old('Empno') }}"  placeholder="Employee No/email" required autofocus >
+						<input id="Empno" class="input100" type="text" class="form-control{{ $errors->has('Empno') || $errors->has('Email') ? ' is-invalid' : '' }}" name="Empno" value="{{ old('Empno') }}"  placeholder="Employee No/Email" required autofocus >
                                  @if ($errors->has('Empno'))
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $errors->first('Empno') }}</strong>
                                     </span>
                                 @endif
 
-                                @if ($errors->has('email'))
+                                @if ($errors->has('Email'))
                                     <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $errors->first('email') }}</strong>
+                                        <strong>{{ $errors->first('Email') }}</strong>
                                     </span>
                                 @endif
 						<span class="focus-input100"></span>

@@ -154,7 +154,7 @@
 			<td> {{$user1->Uname}}</td>
 			<td> {{$user1->gender}}</td>
 			<td> {{$user1->faculty}}</td>
-			<td> {{$user1->Email}}</td>
+			<td> {{$user1->email}}</td>
 			<td> {{$user1->Position}}</td>
 
 
