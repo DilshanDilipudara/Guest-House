@@ -74,6 +74,7 @@ class check_available_room_contoller extends Controller
                      }
                     }
 
+        
          foreach($data as $value){
              
             $pri = $value->price * $date_diff;
@@ -85,7 +86,7 @@ class check_available_room_contoller extends Controller
        
        
         
-        $date[] = array($start_date,$end_date,$pri);
+        $date[] = array($start_date,$end_date);
        // dd($date[0][0]);
        return view('availableroom',compact('data','date'));
     }   

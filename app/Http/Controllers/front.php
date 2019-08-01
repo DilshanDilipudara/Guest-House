@@ -332,7 +332,6 @@ public function summary(){
     ->join('users','users.Empno','=','bookinginfos.Empno')
     ->where('Cleval','=','3')
     ->get();  
-  
 Return view('summary',['user'=>$data]);
 }
 
