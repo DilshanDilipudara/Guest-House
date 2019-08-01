@@ -49,7 +49,7 @@ class UserController extends Controller
        $user = User::find($id);
        $user->Uname=$request->Uname;
        $user->Empno=$request->Empno;
-       $user->Email=$request->Email;
+       $user->email=$request->Email;
        $user->gender=$request->gender;
        $user->faculty=$request->faculty;
        $user->Nicno=$request->Nicno;

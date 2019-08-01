@@ -42,10 +42,10 @@ class LoginController extends Controller
     public function username()
     {
         $loginType = request()->input('Empno');
-        $this->Empno = filter_var($loginType,FILTER_VALIDATE_EMAIL) ? 'Email' : 'Empno';
+        $this->Empno = filter_var($loginType,FILTER_VALIDATE_EMAIL) ? 'email' : 'Empno';
         request()->merge([$this->Empno=>$loginType]);
 
-        return property_exists($this,'Empno') ? $this->Empno : 'Email';
+        return property_exists($this,'Empno') ? $this->Empno : 'email';
     }
 
     protected function credentials(Request $request)

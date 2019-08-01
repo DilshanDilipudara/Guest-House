@@ -17,7 +17,7 @@ class MailController extends Controller
         $id = $empno;
         $user= DB::table('users')
         ->where('Empno','=',$id)
-       ->select('Email')
+       ->select('email')
        ->get();  
     
         
@@ -39,7 +39,7 @@ class MailController extends Controller
         $id = $empno;
         $user= DB::table('users')
         ->where('Empno','=',$id)
-       ->select('Email')
+       ->select('email')
        ->get();  
     
         
@@ -61,7 +61,7 @@ class MailController extends Controller
         $id = $empno;
         $user= DB::table('users')
         ->where('Empno','=',$id)
-       ->select('Email')
+       ->select('email')
        ->get();  
     
         
@@ -83,7 +83,7 @@ class MailController extends Controller
         $id = $empno;
         $user= DB::table('users')
         ->where('Empno','=',$id)
-       ->select('Email')
+       ->select('email')
        ->get();  
     
         

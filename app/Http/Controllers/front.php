@@ -67,30 +67,26 @@ Return view('adminIndex',['user'=>$data]);
 
 
 public function doconfirm($Empno ,$roomid,$strd,$endd){
-    //echo($Empno);
-    //echo($strd);
-    //echo($endd);
+   
    DB::table('bookinginfos')
             ->where('Empno', $Empno )
             ->where('Strd', $strd )
             ->where('Endd', $endd )
             ->update(['Cleval' => 3]);
-            //Session::put('key', '$Empno');
+           
             app('App\Http\Controllers\MailController')->send($Empno);
             return redirect()->back();
 
 }
 
 public function doreject($Empno ,$roomid,$strd,$endd){
-    //echo($Empno);
-    //echo($strd);
-    //echo($endd);
+  
    DB::table('bookinginfos')
             ->where('Empno', $Empno )
             ->where('Strd', $strd )
             ->where('Endd', $endd )
             ->update(['Cleval' => 5]);
-            //Session::put('key', '$Empno');
+          
             app('App\Http\Controllers\MailController')->rejectroom($Empno);
             return redirect()->back();
 
@@ -105,9 +101,7 @@ public function paymentinfo()
     ->select('Uname','Empno','Abill')
     ->get();
 
-    //$data = DB::table('bookinginfos')->where('Cleval',!3)->get();
-   //,['user'=>$data]
-    //$data = bookinginfo::table('Empno')->get();
+  
 Return view('paymentinfo',['user'=>$data]);
 
 }
@@ -141,7 +135,7 @@ public function confirmuser(){
 
     $data=   DB::table('users')
     ->select('users.Empno','users.Uname','users.gender',
-            'users.faculty','users.Department','users.Position','users.Email')
+            'users.faculty','users.Department','users.Position','users.email')
     ->where('Crts',0)
     ->get();
 
@@ -296,7 +290,7 @@ public function downloadpdf($Empno ,$roomid,$strd,$endd){
 public function userdetails(){
 
     $data=   DB::table('users')
-    ->select('users.Empno','users.Uname','users.gender','users.faculty','users.Department','users.Position','users.Email')
+    ->select('users.Empno','users.Uname','users.gender','users.faculty','users.Department','users.Position','users.email')
             ->where('users.position','!=','Admin')
             ->where('users.Crts','=','1')
     ->get();
