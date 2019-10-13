@@ -132,3 +132,4 @@ Route::get('/removeuser/{Empno}','front@removeuser');
 Route::get('/setadmin/{Empno}','front@setadmin');
 
 Route::get('/summary','front@summary');
+

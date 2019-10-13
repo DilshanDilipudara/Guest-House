@@ -55,6 +55,8 @@
                                 @endif
 						<span class="focus-input100"></span>
 					</div>
+					<br>
+					<br>
 					<div class="wrap-input100 rs2-wrap-input100 validate-input m-b-20" data-validate="Type password">
 						<input id="password" type="password" class="input100"  class="form-control{{ $errors->has('password') ? ' is-invalid' : '' }}"  name="password" placeholder="Password" required>
                                  @if ($errors->has('password'))
